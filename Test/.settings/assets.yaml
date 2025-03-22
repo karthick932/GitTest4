@@ -1,0 +1,79 @@
+name: Test
+version: 2
+projectReferences: 
+resources: 
+  - name: .classpath
+    type: com.ibm.rational.test.lt.classpath
+    dependencies: 
+      - path: /Test/src
+        type: javaClasspath
+  - name: 'Compound Tests'
+    resources: 
+  - name: Datasets
+    resources: 
+  - name: 'JMeter Tests'
+    resources: 
+  - name: Locations
+    resources: 
+  - name: Results
+    resources: 
+      - name: testsample_1742644348388.stats
+        type: com.ibm.rational.test.lt.stats.session
+        properties: 
+          startTime: 1742644348388
+          tags: 
+          testId: A1F007140ECE8040CE89E63339666364
+          testName: testsample
+        dependencies: 
+          - path: /Test/Results/testsample_1742644348388.xmoebreport
+            type: statsSessionAsset
+          - path: /Test/Results/testsample_1742644348388_orch!system.mstats
+            type: statsSessionStore
+          - path: /Test/Results/testsample_1742644348388_orch!system.rstats
+            type: statsSessionStore
+          - path: /Test/Results/testsample_1742644348388_perf!localhost.mstats
+            type: statsSessionStore
+          - path: /Test/Results/testsample_1742644348388_perf!localhost.rstats
+            type: statsSessionStore
+          - path: /Test/Results/testsample_1742644350031.executiondlr
+            type: statsSessionAsset
+          - path: /Test/Tests/testsample.testsuite
+            type: statsSessionTest
+      - name: testsample_1742644348388.xmoebreport
+      - name: testsample_1742644348388_orch!system.mstats
+      - name: testsample_1742644348388_orch!system.rstats
+        type: com.ibm.rational.test.lt.stats.raw
+      - name: testsample_1742644348388_perf!localhost.mstats
+      - name: testsample_1742644348388_perf!localhost.rstats
+        type: com.ibm.rational.test.lt.stats.raw
+      - name: testsample_1742644350031.executiondlr
+  - name: Schedules
+    resources: 
+  - name: Tests
+    resources: 
+      - name: testsample.recdata
+      - name: testsample.recsession
+        type: com.ibm.rational.test.lt.recsession
+        dependencies: 
+          - path: /Test/Tests/testsample.recdata
+            type: recsessionRecdata
+      - name: testsample.testsuite
+        type: com.ibm.rational.test.lt.test
+        version: 11.0.4.0
+        properties: 
+          features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.mobileweb'
+          type: com.ibm.rational.test.lt.lttest
+          uid: A1F007140ECE8040CE89E63339666364
+        dependencies: 
+          - path: /Test/Tests/testsample.recsession
+            type: testRecsession
+          - path: /Test/pectran_com_8df.ma
+            type: test#moeb.applicationPackage
+  - name: pectran_com_8df.ma
+    type: moeb.applicationPackage
+  - name: src
+    resources: 
+      - name: test
+        resources: 
+          - name: Testsample_Test_A1F007140ECE8040CE89E63339666364.java
+            type: com.ibm.rational.test.lt.generatedCode
