@@ -1,0 +1,152 @@
+name: Project15
+version: 2
+projectReferences: 
+resources: 
+  - name: .classpath
+    type: com.ibm.rational.test.lt.classpath
+    dependencies: 
+      - path: /Project15/src
+        type: javaClasspath
+  - name: 'Compound Tests'
+    resources: 
+  - name: Datasets
+    resources: 
+  - name: 'JMeter Tests'
+    resources: 
+  - name: Locations
+    resources: 
+  - name: Results
+    resources: 
+      - name: PerfTestScript5_1742460495234.stats
+        type: com.ibm.rational.test.lt.stats.session
+        properties: 
+          startTime: 1742460495234
+          tags: 
+          testId: A1F0056804680930D426B73632323261
+          testName: PerfTestScript5
+        dependencies: 
+          - path: /Project15/Results/PerfTestScript5_1742460495234_orch!system.mstats
+            type: statsSessionStore
+          - path: /Project15/Results/PerfTestScript5_1742460495234_orch!system.rstats
+            type: statsSessionStore
+          - path: /Project15/Results/PerfTestScript5_1742460495234_perf!localhost.mstats
+            type: statsSessionStore
+          - path: /Project15/Results/PerfTestScript5_1742460495234_perf!localhost.rstats
+            type: statsSessionStore
+          - path: /Project15/Results/PerfTestScript5_1742460496333.executiondlr
+            type: statsSessionAsset
+          - path: /Project15/Tests/PerfTestScript5.testsuite
+            type: statsSessionTest
+      - name: PerfTestScript5_1742460495234_orch!system.mstats
+      - name: PerfTestScript5_1742460495234_orch!system.rstats
+        type: com.ibm.rational.test.lt.stats.raw
+      - name: PerfTestScript5_1742460495234_perf!localhost.mstats
+      - name: PerfTestScript5_1742460495234_perf!localhost.rstats
+        type: com.ibm.rational.test.lt.stats.raw
+      - name: PerfTestScript5_1742460496333.executiondlr
+      - name: VUSchedule_1742647727898.stats
+        type: com.ibm.rational.test.lt.stats.session
+        properties: 
+          startTime: 1742647727898
+          tags: 
+          testId: A1F0071BC3ACAB70CB31B73736303936
+          testName: VUSchedule
+        dependencies: 
+          - path: /Project15/Results/VUSchedule_1742647727898_orch!system.mstats
+            type: statsSessionStore
+          - path: /Project15/Results/VUSchedule_1742647727898_orch!system.rstats
+            type: statsSessionStore
+          - path: /Project15/Results/VUSchedule_1742647727898_perf!localhost.mstats
+            type: statsSessionStore
+          - path: /Project15/Results/VUSchedule_1742647727898_perf!localhost.rstats
+            type: statsSessionStore
+          - path: /Project15/Results/VUSchedule_1742647748256.executiondlr
+            type: statsSessionAsset
+          - path: /Project15/Schedules/VUSchedule.testsuite
+            type: statsSessionTest
+      - name: VUSchedule_1742647727898_orch!system.mstats
+      - name: VUSchedule_1742647727898_orch!system.rstats
+        type: com.ibm.rational.test.lt.stats.raw
+      - name: VUSchedule_1742647727898_perf!localhost.mstats
+      - name: VUSchedule_1742647727898_perf!localhost.rstats
+        type: com.ibm.rational.test.lt.stats.raw
+      - name: VUSchedule_1742647748256.executiondlr
+  - name: Schedules
+    resources: 
+      - name: VUSchedule.testsuite
+        type: com.ibm.rational.test.lt.schedule
+        version: 11.0.4.0
+        properties: 
+          description: 'Stages:
+
+	users=12; duration=Run Until Finished
+
+User Group 1: Group Size 50.0 percent
+
+	Test(s): PerfTestScript5
+
+User Group 2: Group Size 50.0 percent
+
+	Test(s): Guest1,Guest2
+
+'
+          name: VUSchedule
+          type: com.ibm.rational.test.common.schedule.Schedule
+          uid: A1F0071BC3ACAB70CB31B73736303936
+        dependencies: 
+          - path: /Project15/Tests/Guest1.testsuite
+            type: scheduleInvokedTest
+          - path: /Project15/Tests/Guest2.testsuite
+            type: scheduleInvokedTest
+          - path: /Project15/Tests/PerfTestScript5.testsuite
+            type: scheduleInvokedTest
+  - name: Tests
+    resources: 
+      - name: Guest1.testsuite
+        type: com.ibm.rational.test.lt.test
+        version: 11.0.4.0
+        properties: 
+          features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.http'
+          type: com.ibm.rational.test.lt.lttest
+          uid: A1F0071BB547D3B6CB31B73736303936
+        dependencies: 
+          - path: /Project15/Tests/PerfTestScript5.recsession
+            type: testRecsession
+      - name: Guest2.testsuite
+        type: com.ibm.rational.test.lt.test
+        version: 11.0.4.0
+        properties: 
+          features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.http'
+          type: com.ibm.rational.test.lt.lttest
+          uid: A1F0071BBA958DEACB31B73736303936
+        dependencies: 
+          - path: /Project15/Tests/PerfTestScript5.recsession
+            type: testRecsession
+      - name: PerfTestScript5.recdata
+      - name: PerfTestScript5.recsession
+        type: com.ibm.rational.test.lt.recsession
+        dependencies: 
+          - path: /Project15/Tests/PerfTestScript5.recdata
+            type: recsessionRecdata
+      - name: PerfTestScript5.testsuite
+        type: com.ibm.rational.test.lt.test
+        version: 11.0.4.0
+        properties: 
+          features: 'com.ibm.rational.test.lt.feature.lt,com.ibm.rational.test.lt.feature.http'
+          type: com.ibm.rational.test.lt.lttest
+          uid: A1F0056804680930D426B73632323261
+        dependencies: 
+          - path: /Project15/Tests/PerfTestScript5.recsession
+            type: testRecsession
+  - name: src
+    resources: 
+      - name: test
+        resources: 
+          - name: Guest1_Test_A1F0071BB547D3B6CB31B73736303936.java
+            type: com.ibm.rational.test.lt.generatedCode
+          - name: Guest2_Test_A1F0071BBA958DEACB31B73736303936.java
+            type: com.ibm.rational.test.lt.generatedCode
+          - name: PerfTestScript5_Test_A1F0056804680930D426B73632323261.java
+            type: com.ibm.rational.test.lt.generatedCode
+          - name: VUSchedule_Schedule_A1F0071BC3ACAB70CB31B73736303936.java
+            type: com.ibm.rational.test.lt.generatedCode
